@@ -1,0 +1,7 @@
+div{
+  display: flex;
+}
+
+h3 {
+  border-bottom: 1px dotted rgb(236, 94, 118);
+}
