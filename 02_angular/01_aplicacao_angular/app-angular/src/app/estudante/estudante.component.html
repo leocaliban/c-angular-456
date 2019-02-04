@@ -1,6 +1,8 @@
-<div>
-  Estudante: {{nome}}
-  <div [hidden]="isMatriculado" class="alerta">
-    Estudante não matriculado!
+<div class="aluno">
+  Estudante: {{estudante.nome}}
+  <div [hidden]="estudante.isMatriculado">
+    <div class="alerta">
+      Não matriculado!
+    </div>
   </div>
 </div>

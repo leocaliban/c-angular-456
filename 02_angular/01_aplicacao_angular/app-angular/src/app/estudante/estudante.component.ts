@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Estudante } from './estudante.model';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'apg-estudante',
@@ -7,8 +8,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EstudanteComponent implements OnInit {
 
-  nome = 'Jack';
-  isMatriculado = false;
+  // @Input() nome: string;
+  // @Input() isMatriculado: boolean;
+
+  @Input() estudante: Estudante;
 
   constructor() { }
 

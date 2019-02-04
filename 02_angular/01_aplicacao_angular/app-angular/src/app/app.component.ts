@@ -1,3 +1,4 @@
+import { Estudante } from './estudante/estudante.model';
 import { Component } from '@angular/core';
 
 @Component({
@@ -6,5 +7,18 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'apg';
+
+  jack: Estudante = {
+    nome: 'Jack',
+    isMatriculado: true
+  };
+  kim: Estudante = {
+    nome: 'Kim',
+    isMatriculado: false
+  };
+  nina: Estudante = {
+    nome: 'Nina',
+    isMatriculado: true,
+    idade: 40
+  };
 }
