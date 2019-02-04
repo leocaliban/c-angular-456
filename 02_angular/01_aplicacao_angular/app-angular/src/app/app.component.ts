@@ -8,17 +8,21 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
 
-  jack: Estudante = {
-    nome: 'Jack',
-    isMatriculado: true
-  };
-  kim: Estudante = {
-    nome: 'Kim',
-    isMatriculado: false
-  };
-  nina: Estudante = {
-    nome: 'Nina',
-    isMatriculado: true,
-    idade: 40
-  };
+  estudantes: Estudante[] = [
+    {
+      nome: 'Jack',
+      isMatriculado: true
+    },
+    {
+      nome: 'Kim',
+      isMatriculado: false
+    },
+    {
+      nome: 'Nina',
+      isMatriculado: true,
+      idade: 40
+    }
+  ];
+
+
 }

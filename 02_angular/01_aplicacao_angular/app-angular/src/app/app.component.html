@@ -1,5 +1,3 @@
 <apg-header></apg-header>
 
-<apg-estudante [estudante]="jack"></apg-estudante>
-<apg-estudante [estudante]="kim"></apg-estudante>
-<apg-estudante [estudante]="nina"></apg-estudante>
+<apg-estudante *ngFor="let estudante of estudantes" [estudante]="estudante"></apg-estudante>

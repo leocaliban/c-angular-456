@@ -1,6 +1,6 @@
 <div class="aluno">
   Estudante: {{estudante.nome}}
-  <div [hidden]="estudante.isMatriculado">
+  <div *ngIf="!estudante.isMatriculado" >
     <div class="alerta">
       Não matriculado!
     </div>
