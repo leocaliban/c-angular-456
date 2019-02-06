@@ -1,6 +1,6 @@
-<div *ngIf="estudante; else semEstudante"  class="aluno">
-  Estudante: {{estudante?.nome}}
-  <div *ngIf="!estudante?.isMatriculado" >
+<div *ngIf="estudante; else semEstudante" class="aluno">
+  Estudante: <a href="#" (click)="click()">{{estudante?.nome}}</a>
+  <div *ngIf="!estudante?.isMatriculado">
     <div class="alerta">
       Não matriculado!
     </div>
