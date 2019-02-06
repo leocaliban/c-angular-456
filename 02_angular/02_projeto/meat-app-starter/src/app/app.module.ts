@@ -8,11 +8,12 @@ import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { HomeComponent } from './home/home.component';
-import { SobreComponent } from './sobre/sobre.component'
+import { SobreComponent } from './sobre/sobre.component';
 
 import { ROUTES } from './app.routes';
 import { RestaurantesComponent } from './restaurantes/restaurantes.component';
 import { RestauranteComponent } from './restaurantes/restaurante/restaurante.component';
+import { RestauranteService } from './restaurantes/restaurantes.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -27,7 +28,7 @@ import { RestauranteComponent } from './restaurantes/restaurante/restaurante.com
     HttpModule,
     RouterModule.forRoot(ROUTES)
   ],
-  providers: [],
+  providers: [RestauranteService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
