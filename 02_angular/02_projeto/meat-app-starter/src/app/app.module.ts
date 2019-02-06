@@ -11,12 +11,14 @@ import { HomeComponent } from './home/home.component';
 import { SobreComponent } from './sobre/sobre.component'
 
 import { ROUTES } from './app.routes';
+import { RestaurantesComponent } from './restaurantes/restaurantes.component';
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     HomeComponent,
-    SobreComponent
+    SobreComponent,
+    RestaurantesComponent
   ],
   imports: [
     BrowserModule,
