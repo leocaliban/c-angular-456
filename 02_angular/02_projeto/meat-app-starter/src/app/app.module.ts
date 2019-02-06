@@ -12,13 +12,15 @@ import { SobreComponent } from './sobre/sobre.component'
 
 import { ROUTES } from './app.routes';
 import { RestaurantesComponent } from './restaurantes/restaurantes.component';
+import { RestauranteComponent } from './restaurantes/restaurante/restaurante.component';
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     HomeComponent,
     SobreComponent,
-    RestaurantesComponent
+    RestaurantesComponent,
+    RestauranteComponent
   ],
   imports: [
     BrowserModule,
