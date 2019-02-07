@@ -18,6 +18,7 @@ import { DetalheRestauranteComponent } from './detalhe-restaurante/detalhe-resta
 import { MenuComponent } from './detalhe-restaurante/menu/menu.component';
 import { CarrinhoComponent } from './detalhe-restaurante/carrinho/carrinho.component';
 import { ItemMenuComponent } from './detalhe-restaurante/item-menu/item-menu.component';
+import { ReviewsComponent } from './detalhe-restaurante/reviews/reviews.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,7 +30,8 @@ import { ItemMenuComponent } from './detalhe-restaurante/item-menu/item-menu.com
     DetalheRestauranteComponent,
     MenuComponent,
     CarrinhoComponent,
-    ItemMenuComponent
+    ItemMenuComponent,
+    ReviewsComponent
   ],
   imports: [
     BrowserModule,

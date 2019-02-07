@@ -4,6 +4,8 @@ import { SobreComponent } from './sobre/sobre.component';
 import { HomeComponent } from './home/home.component';
 import { RestaurantesComponent } from './restaurantes/restaurantes.component';
 import { DetalheRestauranteComponent } from './detalhe-restaurante/detalhe-restaurante.component';
+import { MenuComponent } from './detalhe-restaurante/menu/menu.component';
+import { ReviewsComponent } from './detalhe-restaurante/reviews/reviews.component';
 
 export const ROUTES: Routes = [
   {
@@ -20,7 +22,22 @@ export const ROUTES: Routes = [
   },
   {
     path: 'restaurantes/:id',
-    component: DetalheRestauranteComponent
+    component: DetalheRestauranteComponent,
+    children: [
+      {
+        path: '',
+        redirectTo: 'menu',
+        pathMatch: 'full'
+      },
+      {
+        path: 'menu',
+        component: MenuComponent
+      },
+      {
+        path: 'reviews',
+        component: ReviewsComponent
+      }
+    ]
   }
 
 ];
