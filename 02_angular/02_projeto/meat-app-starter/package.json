@@ -37,6 +37,8 @@
     "@types/jasmine": "2.5.38",
     "@types/node": "7.0.5",
     "codelyzer": "2.0.0",
+    "gulp": "^4.0.0",
+    "gulp-json-srv": "^1.2.0",
     "jasmine-core": "2.5.2",
     "jasmine-spec-reporter": "3.2.0",
     "karma": "1.4.1",
