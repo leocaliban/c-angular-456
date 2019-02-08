@@ -19,6 +19,7 @@ import { MenuComponent } from './detalhe-restaurante/menu/menu.component';
 import { CarrinhoComponent } from './detalhe-restaurante/carrinho/carrinho.component';
 import { ItemMenuComponent } from './detalhe-restaurante/item-menu/item-menu.component';
 import { ReviewsComponent } from './detalhe-restaurante/reviews/reviews.component';
+import { CarrinhoService } from './detalhe-restaurante/carrinho/carrinho.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -40,6 +41,7 @@ import { ReviewsComponent } from './detalhe-restaurante/reviews/reviews.componen
   ],
   providers: [
     RestauranteService,
+    CarrinhoService,
     {
       provide: LOCALE_ID,
       useValue: 'pt-BR'
