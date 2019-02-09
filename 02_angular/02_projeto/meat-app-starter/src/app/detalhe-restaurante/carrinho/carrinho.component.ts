@@ -22,4 +22,16 @@ export class CarrinhoComponent implements OnInit {
     return this.carrinhoService.total();
   }
 
+  limpar() {
+    this.carrinhoService.limpar();
+  }
+
+  removerItem(item: any) {
+    this.carrinhoService.removerItem(item);
+  }
+
+  adicionarItem(item: any) {
+    this.carrinhoService.adicionarItem(item);
+  }
+
 }
