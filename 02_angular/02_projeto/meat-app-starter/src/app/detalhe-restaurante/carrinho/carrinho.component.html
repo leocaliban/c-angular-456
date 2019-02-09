@@ -40,7 +40,7 @@
       <button (click)="limpar()" type="button" class="btn btn-danger" [disabled]="!itens().length">
         <i class="fa fa-trash"></i> Limpar
       </button>
-      <a href="order.html" class="btn btn-success" *ngIf="itens().length">
+      <a [routerLink]="['/pedido']" class="btn btn-success" *ngIf="itens().length">
         <i class="fa fa-credit-card"></i> Fechar Pedido
       </a>
     </div>

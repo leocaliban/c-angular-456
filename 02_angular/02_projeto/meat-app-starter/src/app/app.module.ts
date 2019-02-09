@@ -20,6 +20,7 @@ import { CarrinhoComponent } from './detalhe-restaurante/carrinho/carrinho.compo
 import { ItemMenuComponent } from './detalhe-restaurante/item-menu/item-menu.component';
 import { ReviewsComponent } from './detalhe-restaurante/reviews/reviews.component';
 import { CarrinhoService } from './detalhe-restaurante/carrinho/carrinho.service';
+import { PedidoComponent } from './pedido/pedido.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,7 +33,8 @@ import { CarrinhoService } from './detalhe-restaurante/carrinho/carrinho.service
     MenuComponent,
     CarrinhoComponent,
     ItemMenuComponent,
-    ReviewsComponent
+    ReviewsComponent,
+    PedidoComponent
   ],
   imports: [
     BrowserModule,
