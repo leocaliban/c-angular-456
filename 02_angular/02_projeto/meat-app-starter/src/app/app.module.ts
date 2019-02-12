@@ -23,6 +23,7 @@ import { ReviewsComponent } from './detalhe-restaurante/reviews/reviews.componen
 import { CarrinhoService } from './detalhe-restaurante/carrinho/carrinho.service';
 import { PedidoComponent } from './pedido/pedido.component';
 import { InputComponent } from './shared/input/input.component';
+import { RadioComponent } from './shared/radio/radio.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -37,7 +38,8 @@ import { InputComponent } from './shared/input/input.component';
     ItemMenuComponent,
     ReviewsComponent,
     PedidoComponent,
-    InputComponent
+    InputComponent,
+    RadioComponent
   ],
   imports: [
     BrowserModule,
