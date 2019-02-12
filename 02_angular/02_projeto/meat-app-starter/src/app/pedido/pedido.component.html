@@ -3,7 +3,6 @@
 
 <section class="content">
   <section class="invoice">
-
     <form novalidate #form="ngForm">
       <div class="row">
         <div class="col-xs-12">
@@ -36,7 +35,7 @@
         <div class="col-sm-3 col-xs-6">
 
           <mt-input-container>
-              <input type="text" class="form-control" name="optional" ngModel placeholder="Complemento">
+            <input type="text" class="form-control" name="optional" ngModel placeholder="Complemento">
           </mt-input-container>
 
         </div>
@@ -105,7 +104,8 @@
           <p class="lead">Formas de Pagamento:</p>
 
           <div class="form-group">
-            <mt-radio [options]="opcoesDePagamento">
+
+            <mt-radio [options]="opcoesDePagamento" name="opcaoDePagamento" ngModel>
 
             </mt-radio>
           </div>
