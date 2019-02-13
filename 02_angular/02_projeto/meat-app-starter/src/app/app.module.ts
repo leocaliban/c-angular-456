@@ -1,3 +1,4 @@
+import { PedidoService } from './pedido/pedido.service';
 
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, LOCALE_ID } from '@angular/core';
@@ -52,6 +53,7 @@ import { ItensDePedidoComponent } from './pedido/itens-de-pedido/itens-de-pedido
   providers: [
     RestauranteService,
     CarrinhoService,
+    PedidoService,
     {
       provide: LOCALE_ID,
       useValue: 'pt-BR'

@@ -51,7 +51,8 @@
         </div>
 
 
-        <mt-itens-de-pedido></mt-itens-de-pedido>
+        <mt-itens-de-pedido [itens]="itensDoCarrinho()" (aumentarQuantidade)="aumentarQuantidade($event)"
+          (diminuirQuantidade)="diminuirQuantidade($event)" (remover)="remover($event)"></mt-itens-de-pedido>
 
 
         <!-- /.col -->

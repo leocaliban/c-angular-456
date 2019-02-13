@@ -12,9 +12,20 @@ export class CarrinhoService {
   adicionarItem(item: ItemMenu) {
     let foundItem = this.itens.find((itemDoCarrinho) => itemDoCarrinho.itemMenu.id === item.id);
     if (foundItem) {
-      foundItem.quantity += 1;
+      this.aumentarQuantidade(foundItem);
     } else {
       this.itens.push(new ItemCarrinho(item));
+    }
+  }
+
+  aumentarQuantidade(item: ItemCarrinho) {
+    item.quantity++;
+  }
+
+  diminuirQuantidade(item: ItemCarrinho) {
+    item.quantity--;
+    if (item.quantity === 0) {
+      this.removerItem(item);
     }
   }
 
