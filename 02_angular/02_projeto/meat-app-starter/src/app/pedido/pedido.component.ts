@@ -10,6 +10,8 @@ import { RadioOption } from 'app/shared/radio/radio-option.model';
 })
 export class PedidoComponent implements OnInit {
 
+  frete = 8;
+
   opcoesDePagamento: RadioOption[] = [
     {
       label: 'Dinheiro',
@@ -28,6 +30,10 @@ export class PedidoComponent implements OnInit {
   constructor(private pedidoService: PedidoService) { }
 
   ngOnInit() {
+  }
+
+  valorDosItens(): number {
+    return this.pedidoService.valorDosItens();
   }
 
   itensDoCarrinho(): ItemCarrinho[] {

@@ -66,7 +66,7 @@
 
           <div class="form-group">
 
-            <mt-radio [options]="opcoesDePagamento" name="opcaoDePagamento" ngModel>
+            <mt-radio [options]="opcoesDePagamento" name="opcaoDePagamento" ngModel required>
 
             </mt-radio>
           </div>
@@ -76,24 +76,7 @@
         <div class="col-sm-6 col-xs-12">
           <p class="lead">Frete e Total:</p>
 
-          <div class="table-responsive">
-            <table class="table">
-              <tbody>
-                <tr>
-                  <th style="width:50%">Itens:</th>
-                  <td class="text-right">R$ 20,00</td>
-                </tr>
-                <tr>
-                  <th>Frete:</th>
-                  <td class="text-right">R$ 8,00</td>
-                </tr>
-                <tr>
-                  <th>Total:</th>
-                  <td class="text-right">R$ 28,00</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
+          <mt-custos [frete]="frete" [valorDosItens]="valorDosItens()"></mt-custos>
         </div>
         <!-- /.col -->
       </div>
@@ -102,7 +85,7 @@
 
     <div class="row">
       <div class="col-xs-12">
-        <button [disabled]="!form.valid" class="btn btn-success pull-right"><i class="fa fa-credit-card"></i> Concluir
+        <button [disabled]="!form.valid || itensDoCarrinho().length === 0" class="btn btn-success pull-right"><i class="fa fa-credit-card"></i> Concluir
           Pedido
         </button>
       </div>

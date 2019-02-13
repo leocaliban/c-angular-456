@@ -6,7 +6,12 @@ import { CarrinhoService } from './../detalhe-restaurante/carrinho/carrinho.serv
 @Injectable()
 export class PedidoService {
 
+
   constructor(private carrinhoService: CarrinhoService) { }
+
+  valorDosItens(): number {
+    return this.carrinhoService.total();
+  }
 
   itensDoCarrinho(): ItemCarrinho[] {
     return this.carrinhoService.itens;
