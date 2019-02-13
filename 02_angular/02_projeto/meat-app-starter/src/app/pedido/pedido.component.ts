@@ -2,6 +2,7 @@ import { ItemCarrinho } from './../detalhe-restaurante/carrinho/item-carrinho.mo
 import { PedidoService } from './pedido.service';
 import { Component, OnInit } from '@angular/core';
 import { RadioOption } from 'app/shared/radio/radio-option.model';
+import { Pedido, ItemDePedido } from './pedido.model';
 
 @Component({
   selector: 'mt-pedido',
@@ -50,6 +51,16 @@ export class PedidoComponent implements OnInit {
 
   remover(item: ItemCarrinho) {
     this.pedidoService.remover(item);
+  }
+
+  finalizarPedido(pedido: Pedido) {
+    pedido.itensDePedido = this.itensDoCarrinho().map((item: ItemCarrinho) => new ItemDePedido(item.quantity, item.itemMenu.id));
+
+    this.pedidoService.finalizarPedido(pedido)
+      .subscribe((pedidoId: string) => {
+        console.log(`Compra concluída: ${pedidoId}`);
+        this.pedidoService.limpar();
+      });
   }
 
 }
