@@ -27,6 +27,7 @@ import { InputComponent } from './shared/input/input.component';
 import { RadioComponent } from './shared/radio/radio.component';
 import { ItensDePedidoComponent } from './pedido/itens-de-pedido/itens-de-pedido.component';
 import { CustosComponent } from './pedido/custos/custos.component';
+import { PedidoSumarioComponent } from './pedido-sumario/pedido-sumario.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -44,7 +45,8 @@ import { CustosComponent } from './pedido/custos/custos.component';
     InputComponent,
     RadioComponent,
     ItensDePedidoComponent,
-    CustosComponent
+    CustosComponent,
+    PedidoSumarioComponent
   ],
   imports: [
     BrowserModule,

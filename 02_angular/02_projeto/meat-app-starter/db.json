@@ -371,18 +371,6 @@
     }
   ],
   "pedidos": [
-    {
-      "adress": "ujuiuiui",
-      "number": "7",
-      "optional": "jhhj",
-      "opcaoDePagamento": "MON",
-      "itensDePedido": [
-        {
-          "quantity": 1,
-          "menuId": "capp"
-        }
-      ],
-      "id": 1
-    }
+
   ]
 }
