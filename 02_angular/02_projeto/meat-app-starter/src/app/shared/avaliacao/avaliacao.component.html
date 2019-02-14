@@ -1,0 +1,3 @@
+<i *ngFor="let estrela of estrelas" class="fa" [class.fa-star]="estrela <= estrelaValor"
+  [class.fa-star-o]="estrela > estrelaValor" (click)="avaliar(estrela)" (mouseenter)="hover(estrela)"
+  (mouseleave)="limparEstrelaHover()"></i>
