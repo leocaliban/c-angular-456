@@ -8,6 +8,7 @@ import { AvaliacaoComponent } from './avaliacao/avaliacao.component';
 import { CarrinhoService } from 'app/detalhe-restaurante/carrinho/carrinho.service';
 import { PedidoService } from 'app/pedido/pedido.service';
 import { RestauranteService } from 'app/restaurantes/restaurantes.service';
+import { SnackbarComponent } from './messages/snackbar/snackbar.component';
 
 @NgModule({
   imports: [
@@ -18,12 +19,14 @@ import { RestauranteService } from 'app/restaurantes/restaurantes.service';
   declarations: [
     RadioComponent,
     InputComponent,
-    AvaliacaoComponent
+    AvaliacaoComponent,
+    SnackbarComponent
   ],
   exports: [
     RadioComponent,
     InputComponent,
     AvaliacaoComponent,
+    SnackbarComponent,
     CommonModule,
     FormsModule,
     ReactiveFormsModule
