@@ -4,7 +4,7 @@ import { Component, OnInit } from '@angular/core';
 import { RadioOption } from 'app/shared/radio/radio-option.model';
 import { Pedido, ItemDePedido } from './pedido.model';
 import { Router } from '@angular/router';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators, AbstractControl } from '@angular/forms';
 
 @Component({
   selector: 'mt-pedido',
@@ -36,11 +36,25 @@ export class PedidoComponent implements OnInit {
     }
   ];
 
+  static equalsTo(group: AbstractControl): { [key: string]: boolean } {
+    const email = group.get('email');
+    const emailConfirmacao = group.get('emailConfirmacao');
+    if (!email || !emailConfirmacao) {
+      return undefined;
+    }
+
+    if (email.value !== emailConfirmacao.value) {
+      return { emailDiferente: true };
+    }
+    return undefined;
+  }
+
   constructor(
     private pedidoService: PedidoService,
     private router: Router,
     private formBuilder: FormBuilder
   ) { }
+
 
   ngOnInit() {
     this.formularioDePedido = this.formBuilder.group({
@@ -51,8 +65,12 @@ export class PedidoComponent implements OnInit {
       numero: this.formBuilder.control('', [Validators.required, Validators.pattern(this.numeroPadrao)]),
       enderecoOpcional: this.formBuilder.control(''),
       opcaoDePagamento: this.formBuilder.control('', [Validators.required])
-    });
+    },
+      {
+        validator: PedidoComponent.equalsTo
+      });
   }
+
 
   valorDosItens(): number {
     return this.pedidoService.valorDosItens();
