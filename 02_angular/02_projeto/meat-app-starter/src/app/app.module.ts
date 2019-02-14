@@ -22,12 +22,10 @@ import { ItemMenuComponent } from './detalhe-restaurante/item-menu/item-menu.com
 import { ReviewsComponent } from './detalhe-restaurante/reviews/reviews.component';
 import { CarrinhoService } from './detalhe-restaurante/carrinho/carrinho.service';
 import { PedidoComponent } from './pedido/pedido.component';
-import { InputComponent } from './shared/input/input.component';
-import { RadioComponent } from './shared/radio/radio.component';
 import { ItensDePedidoComponent } from './pedido/itens-de-pedido/itens-de-pedido.component';
 import { CustosComponent } from './pedido/custos/custos.component';
 import { PedidoSumarioComponent } from './pedido-sumario/pedido-sumario.component';
-import { AvaliacaoComponent } from './shared/avaliacao/avaliacao.component';
+import { SharedModule } from './shared/shared.module';
 @NgModule({
   declarations: [
     AppComponent,
@@ -41,18 +39,14 @@ import { AvaliacaoComponent } from './shared/avaliacao/avaliacao.component';
     ItemMenuComponent,
     ReviewsComponent,
     PedidoComponent,
-    InputComponent,
-    RadioComponent,
     ItensDePedidoComponent,
     CustosComponent,
-    PedidoSumarioComponent,
-    AvaliacaoComponent
+    PedidoSumarioComponent
   ],
   imports: [
     BrowserModule,
     HttpModule,
-    FormsModule,
-    ReactiveFormsModule,
+    SharedModule,
     RouterModule.forRoot(ROUTES)
   ],
   providers: [
