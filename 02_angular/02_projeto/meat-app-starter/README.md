@@ -36,6 +36,12 @@ Expressões regulares usadas na validação de formulários
 
 `/^[0-9]*$/`
 
+## Instalações
+
+npm i --save @angular/animations@4.0.0
+
+npm i --save web-animations-js
+
 ## Upgrade para Angular 4.3
 
 Dependências dos pacotes que devem ficar em package.json:
