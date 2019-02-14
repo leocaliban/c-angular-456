@@ -10,7 +10,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { HomeComponent } from './home/home.component';
-import { SobreComponent } from './sobre/sobre.component';
 
 import { ROUTES } from './app.routes';
 import { RestaurantesComponent } from './restaurantes/restaurantes.component';
@@ -34,7 +33,6 @@ import { AvaliacaoComponent } from './shared/avaliacao/avaliacao.component';
     AppComponent,
     HeaderComponent,
     HomeComponent,
-    SobreComponent,
     RestaurantesComponent,
     RestauranteComponent,
     DetalheRestauranteComponent,

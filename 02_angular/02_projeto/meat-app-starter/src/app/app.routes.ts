@@ -1,7 +1,6 @@
 import { PedidoSumarioComponent } from './pedido-sumario/pedido-sumario.component';
 import { Routes } from '@angular/router';
 
-import { SobreComponent } from './sobre/sobre.component';
 import { HomeComponent } from './home/home.component';
 import { RestaurantesComponent } from './restaurantes/restaurantes.component';
 import { DetalheRestauranteComponent } from './detalhe-restaurante/detalhe-restaurante.component';
@@ -16,7 +15,7 @@ export const ROUTES: Routes = [
   },
   {
     path: 'sobre',
-    component: SobreComponent
+    loadChildren: './sobre/sobre.module#SobreModule'
   },
   {
     path: 'restaurantes',
