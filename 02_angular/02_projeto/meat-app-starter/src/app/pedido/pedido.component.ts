@@ -4,7 +4,7 @@ import { Component, OnInit } from '@angular/core';
 import { RadioOption } from 'app/shared/radio/radio-option.model';
 import { Pedido, ItemDePedido } from './pedido.model';
 import { Router } from '@angular/router';
-import { FormGroup, FormBuilder } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'mt-pedido',
@@ -12,6 +12,10 @@ import { FormGroup, FormBuilder } from '@angular/forms';
   styles: []
 })
 export class PedidoComponent implements OnInit {
+
+  emailPadrao = /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
+
+  numeroPadrao = /^[0-9]*$/;
 
   formularioDePedido: FormGroup;
 
@@ -40,13 +44,13 @@ export class PedidoComponent implements OnInit {
 
   ngOnInit() {
     this.formularioDePedido = this.formBuilder.group({
-      nome: this.formBuilder.control(''),
-      email: this.formBuilder.control(''),
-      emailConfirmacao: this.formBuilder.control(''),
-      endereco: this.formBuilder.control(''),
-      numero: this.formBuilder.control(''),
+      nome: this.formBuilder.control('', [Validators.required, Validators.minLength(5)]),
+      email: this.formBuilder.control('', [Validators.required, Validators.pattern(this.emailPadrao)]),
+      emailConfirmacao: this.formBuilder.control('', [Validators.required, Validators.pattern(this.emailPadrao)]),
+      endereco: this.formBuilder.control('', [Validators.required, Validators.minLength(5)]),
+      numero: this.formBuilder.control('', [Validators.required, Validators.pattern(this.numeroPadrao)]),
       enderecoOpcional: this.formBuilder.control(''),
-      opcaoDePagamento: this.formBuilder.control('')
+      opcaoDePagamento: this.formBuilder.control('', [Validators.required])
     });
   }
 
