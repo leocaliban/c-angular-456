@@ -42,7 +42,7 @@ export const ROUTES: Routes = [
   },
   {
     path: 'pedido',
-    component: PedidoComponent
+    loadChildren: './pedido/pedido.module#PedidoModule'
   },
   {
     path: 'pedido-sumario',

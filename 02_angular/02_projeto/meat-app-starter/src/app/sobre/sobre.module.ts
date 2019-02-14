@@ -13,7 +13,6 @@ const ROUTES: Routes = [
 @NgModule({
   imports: [
     CommonModule,
-    RouterModule,
     RouterModule.forChild(ROUTES)
   ],
   declarations: [SobreComponent],
