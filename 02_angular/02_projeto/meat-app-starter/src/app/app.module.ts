@@ -17,7 +17,6 @@ import { ItemMenuComponent } from './detalhe-restaurante/item-menu/item-menu.com
 import { ReviewsComponent } from './detalhe-restaurante/reviews/reviews.component';
 import { PedidoSumarioComponent } from './pedido-sumario/pedido-sumario.component';
 import { SharedModule } from './shared/shared.module';
-import { CoreModule } from './core/core.module';
 @NgModule({
   declarations: [
     AppComponent,
@@ -33,10 +32,9 @@ import { CoreModule } from './core/core.module';
     PedidoSumarioComponent
   ],
   imports: [
-    CoreModule,
     BrowserModule,
     HttpModule,
-    SharedModule,
+    SharedModule.forRoot(),
     RouterModule.forRoot(ROUTES)
   ],
   providers: [
