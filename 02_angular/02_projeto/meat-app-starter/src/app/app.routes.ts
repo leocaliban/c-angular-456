@@ -1,3 +1,4 @@
+import { PedidoSumarioComponent } from './pedido-sumario/pedido-sumario.component';
 import { Routes } from '@angular/router';
 
 import { SobreComponent } from './sobre/sobre.component';
@@ -43,6 +44,10 @@ export const ROUTES: Routes = [
   {
     path: 'pedido',
     component: PedidoComponent
+  },
+  {
+    path: 'pedido-sumario',
+    component: PedidoSumarioComponent
   }
 
 ];

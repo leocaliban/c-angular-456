@@ -48,7 +48,7 @@ export class PedidoService {
         {
           headers: headers
         }
-      )).map(response => response.json());
+      )).map(response => response.json()).map(responsePedido => responsePedido.id);
   }
 
   limpar() {

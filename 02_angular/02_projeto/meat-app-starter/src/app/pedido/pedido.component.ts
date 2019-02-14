@@ -3,6 +3,7 @@ import { PedidoService } from './pedido.service';
 import { Component, OnInit } from '@angular/core';
 import { RadioOption } from 'app/shared/radio/radio-option.model';
 import { Pedido, ItemDePedido } from './pedido.model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'mt-pedido',
@@ -28,7 +29,10 @@ export class PedidoComponent implements OnInit {
     }
   ];
 
-  constructor(private pedidoService: PedidoService) { }
+  constructor(
+    private pedidoService: PedidoService,
+    private router: Router
+  ) { }
 
   ngOnInit() {
   }
@@ -59,6 +63,7 @@ export class PedidoComponent implements OnInit {
     this.pedidoService.finalizarPedido(pedido)
       .subscribe((pedidoId: string) => {
         console.log(`Compra concluída: ${pedidoId}`);
+        this.router.navigate(['/pedido-sumario']);
         this.pedidoService.limpar();
       });
   }
