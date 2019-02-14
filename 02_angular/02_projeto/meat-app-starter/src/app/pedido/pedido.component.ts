@@ -4,6 +4,7 @@ import { Component, OnInit } from '@angular/core';
 import { RadioOption } from 'app/shared/radio/radio-option.model';
 import { Pedido, ItemDePedido } from './pedido.model';
 import { Router } from '@angular/router';
+import { FormGroup, FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'mt-pedido',
@@ -11,6 +12,8 @@ import { Router } from '@angular/router';
   styles: []
 })
 export class PedidoComponent implements OnInit {
+
+  formularioDePedido: FormGroup;
 
   frete = 8;
 
@@ -31,10 +34,20 @@ export class PedidoComponent implements OnInit {
 
   constructor(
     private pedidoService: PedidoService,
-    private router: Router
+    private router: Router,
+    private formBuilder: FormBuilder
   ) { }
 
   ngOnInit() {
+    this.formularioDePedido = this.formBuilder.group({
+      nome: this.formBuilder.control(''),
+      email: this.formBuilder.control(''),
+      emailConfirmacao: this.formBuilder.control(''),
+      endereco: this.formBuilder.control(''),
+      numero: this.formBuilder.control(''),
+      enderecoOpcional: this.formBuilder.control(''),
+      opcaoDePagamento: this.formBuilder.control('')
+    });
   }
 
   valorDosItens(): number {
