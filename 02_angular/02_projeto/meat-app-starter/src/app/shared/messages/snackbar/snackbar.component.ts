@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs/Observable';
 import { trigger, state, style, transition, animate } from '@angular/animations';
 import { NotificacaoService } from '../notificacao.service';
 
 import 'rxjs/add/observable/timer';
-import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/operator/do';
+import 'rxjs/add/operator/switchMap';
 
 @Component({
   selector: 'mt-snackbar',
@@ -35,12 +37,13 @@ export class SnackbarComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.notificacaoService.notificador.subscribe((mensagemResponse: string) => {
-      this.mensagem = mensagemResponse;
-      this.snackVisibility = 'visible';
-      Observable.timer(3000).subscribe(
-        () => this.snackVisibility = 'hidden');
-    });
+    this.notificacaoService.notificador
+      .do((mensagemResponse: string) => {
+        this.mensagem = mensagemResponse;
+        this.snackVisibility = 'visible';
+      })
+      .switchMap(() => Observable.timer(3000))
+      .subscribe(() => this.snackVisibility = 'hidden');
   }
 
 }
