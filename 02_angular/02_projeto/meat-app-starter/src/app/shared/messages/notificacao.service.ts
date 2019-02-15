@@ -2,7 +2,7 @@ import { EventEmitter } from '@angular/core';
 
 export class NotificacaoService {
 
-  notificador = new EventEmitter<string>();
+  notificador = new EventEmitter<any>();
 
   constructor() { }
 
