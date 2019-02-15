@@ -1,3 +1,4 @@
+import { NotFoundComponent } from './not-found/not-found.component';
 import { PedidoSumarioComponent } from './pedido-sumario/pedido-sumario.component';
 import { Routes } from '@angular/router';
 
@@ -6,7 +7,6 @@ import { RestaurantesComponent } from './restaurantes/restaurantes.component';
 import { DetalheRestauranteComponent } from './detalhe-restaurante/detalhe-restaurante.component';
 import { MenuComponent } from './detalhe-restaurante/menu/menu.component';
 import { ReviewsComponent } from './detalhe-restaurante/reviews/reviews.component';
-import { PedidoComponent } from './pedido/pedido.component';
 
 export const ROUTES: Routes = [
   {
@@ -47,6 +47,10 @@ export const ROUTES: Routes = [
   {
     path: 'pedido-sumario',
     component: PedidoSumarioComponent
+  },
+  {
+    path: '**',
+    component: NotFoundComponent
   }
 
 ];
