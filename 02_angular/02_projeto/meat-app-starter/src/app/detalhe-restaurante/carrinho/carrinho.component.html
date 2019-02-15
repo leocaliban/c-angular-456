@@ -16,7 +16,7 @@
       <div class="table-responsive">
         <table class="table">
           <tbody>
-            <tr *ngFor="let item of itens()">
+            <tr *ngFor="let item of itens()" [@linha]="estadoDaLinha">
 
               <th>({{item.quantity}}x) {{item.itemMenu.name}}</th>
 
