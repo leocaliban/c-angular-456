@@ -371,6 +371,29 @@
     }
   ],
   "pedidos": [
-
+    {
+      "nome": "Jack Bauer",
+      "email": "jack@gmail.com",
+      "emailConfirmacao": "jack@gmail.com",
+      "endereco": "1st Avenue",
+      "numero": "95",
+      "enderecoOpcional": "UCT",
+      "opcaoDePagamento": "MON",
+      "itensDePedido": [
+        {
+          "quantity": 1,
+          "menuId": "cup-cake"
+        },
+        {
+          "quantity": 1,
+          "menuId": "donut"
+        },
+        {
+          "quantity": 2,
+          "menuId": "greensandwich"
+        }
+      ],
+      "id": 1
+    }
   ]
 }
