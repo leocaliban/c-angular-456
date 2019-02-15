@@ -1,9 +1,16 @@
+import { NotificacaoService } from './../../shared/messages/notificacao.service';
+import { Injectable } from '@angular/core';
 import { ItemMenu } from './../item-menu/item-menu.model';
 import { ItemCarrinho } from './item-carrinho.model';
 
+@Injectable()
 export class CarrinhoService {
 
   itens: ItemCarrinho[] = [];
+
+  constructor(
+    private notificacaoService: NotificacaoService
+  ) { }
 
   limpar() {
     this.itens = [];
@@ -16,6 +23,7 @@ export class CarrinhoService {
     } else {
       this.itens.push(new ItemCarrinho(item));
     }
+    this.notificacaoService.notificar(`Você adicionou o item ${item.name}.`);
   }
 
   aumentarQuantidade(item: ItemCarrinho) {
@@ -31,6 +39,7 @@ export class CarrinhoService {
 
   removerItem(item: ItemCarrinho) {
     this.itens.splice(this.itens.indexOf(item), 1);
+    this.notificacaoService.notificar(`Você removeu o item ${item.itemMenu.name}.`);
   }
 
   total(): number {

@@ -1,3 +1,4 @@
+import { NotificacaoService } from './messages/notificacao.service';
 import { NgModule, ModuleWithProviders } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
@@ -39,7 +40,8 @@ export class SharedModule {
       providers: [
         CarrinhoService,
         PedidoService,
-        RestauranteService
+        RestauranteService,
+        NotificacaoService
       ]
     };
   }
