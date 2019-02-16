@@ -42,6 +42,10 @@ npm i --save @angular/animations@4.0.0
 
 npm i --save web-animations-js
 
+## Produção com ateração na url para subpastas
+
+`ng build --prod --bh=/meat-app/`
+
 ## Upgrade para Angular 4.3
 
 Dependências dos pacotes que devem ficar em package.json:
