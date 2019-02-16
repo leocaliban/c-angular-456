@@ -5,7 +5,8 @@ class Pedido {
     public number: number,
     public optional: string,
     public opcaoDePagamento: string,
-    public itensDePedido: ItemDePedido[] = []
+    public itensDePedido: ItemDePedido[] = [],
+    public id?: string
   ) { }
 }
 

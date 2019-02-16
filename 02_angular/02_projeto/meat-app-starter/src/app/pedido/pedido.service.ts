@@ -4,7 +4,7 @@ import { Injectable } from '@angular/core';
 import { ItemCarrinho } from './../detalhe-restaurante/carrinho/item-carrinho.model';
 import { CarrinhoService } from './../detalhe-restaurante/carrinho/carrinho.service';
 import { Pedido } from './pedido.model';
-import { Http, Headers, RequestOptions } from '@angular/http';
+import { HttpClient } from '@angular/common/http';
 
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
@@ -16,7 +16,7 @@ export class PedidoService {
 
   constructor(
     private carrinhoService: CarrinhoService,
-    private http: Http
+    private http: HttpClient
   ) { }
 
   valorDosItens(): number {
@@ -40,15 +40,8 @@ export class PedidoService {
   }
 
   finalizarPedido(pedido: Pedido): Observable<string> {
-    const headers = new Headers();
-    headers.append('Content-Type', 'application/json');
-    return this.http.post(`${MEAT_API}pedidos`,
-      JSON.stringify(pedido),
-      new RequestOptions(
-        {
-          headers: headers
-        }
-      )).map(response => response.json()).map(responsePedido => responsePedido.id);
+    return this.http.post<Pedido>(`${MEAT_API}pedidos`,pedido)
+      .map(responsePedido => responsePedido.id);
   }
 
   limpar() {
