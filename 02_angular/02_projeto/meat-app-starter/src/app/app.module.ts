@@ -5,9 +5,9 @@ import { RouterModule, PreloadAllModules } from '@angular/router';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppComponent } from './app.component';
+
 import { HeaderComponent } from './header/header.component';
 import { HomeComponent } from './home/home.component';
-
 import { ROUTES } from './app.routes';
 import { RestaurantesComponent } from './restaurantes/restaurantes.component';
 import { RestauranteComponent } from './restaurantes/restaurante/restaurante.component';
@@ -36,8 +36,8 @@ import { LocationStrategy, HashLocationStrategy } from '@angular/common';
     NotFoundComponent
   ],
   imports: [
-    BrowserAnimationsModule,
     BrowserModule,
+    BrowserAnimationsModule,
     HttpClientModule,
     SharedModule.forRoot(),
     RouterModule.forRoot(ROUTES, { preloadingStrategy: PreloadAllModules })

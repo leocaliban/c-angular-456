@@ -1,6 +1,5 @@
 {
   "compilerOptions": {
-    "paths": { "*": ["types/*"] },
     "sourceMap": true,
     "declaration": false,
     "moduleResolution": "node",
