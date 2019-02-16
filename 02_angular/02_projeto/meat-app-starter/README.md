@@ -42,6 +42,10 @@ npm i --save @angular/animations@4.0.0
 
 npm i --save web-animations-js
 
+`npm inodemon -g` para monitorar alterações de um arquivo
+
+`nodemon --watch backend backend/dist/server.js`
+
 ## Produção com ateração na url para subpastas
 
 `ng build --prod --bh=/meat-app/`
