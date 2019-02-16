@@ -7,6 +7,9 @@ import { trigger, state, style, transition, animate } from '@angular/animations'
 import 'rxjs/add/operator/switchMap';
 import 'rxjs/add/operator/debounceTime';
 import 'rxjs/add/operator/distinctUntilChanged';
+import 'rxjs/add/operator/catch';
+import 'rxjs/add/observable/from';
+import { Observable } from 'rxjs/Observable';
 
 @Component({
   selector: 'mt-restaurantes',
@@ -51,7 +54,8 @@ export class RestaurantesComponent implements OnInit {
       .debounceTime(500)
       .distinctUntilChanged()
       .switchMap(response =>
-        this.restauranteService.buscar(response))
+        this.restauranteService.buscar(response)
+          .catch(error => Observable.from([])))
       .subscribe(restaurantesResponse =>
         this.restaurantes = restaurantesResponse);
 
