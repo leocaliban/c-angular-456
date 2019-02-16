@@ -1,7 +1,10 @@
+import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
 import { RestauranteService } from './restaurantes.service';
 import { Component, OnInit } from '@angular/core';
 import { Restaurante } from './restaurante/restaurante.model';
 import { trigger, state, style, transition, animate } from '@angular/animations';
+
+import 'rxjs/add/operator/switchMap';
 
 @Component({
   selector: 'mt-restaurantes',
@@ -28,11 +31,25 @@ export class RestaurantesComponent implements OnInit {
 
   restaurantes: Restaurante[];
 
+  formularioDeBusca: FormGroup;
+  searchControl: FormControl;
+
   constructor(
-    private restauranteService: RestauranteService
+    private restauranteService: RestauranteService,
+    private formBuilder: FormBuilder
   ) { }
 
   ngOnInit() {
+    this.searchControl = this.formBuilder.control('');
+    this.formularioDeBusca = this.formBuilder.group({
+      searchControl: this.searchControl
+    });
+
+    this.searchControl.valueChanges.switchMap(response =>
+      this.restauranteService.buscar(response))
+      .subscribe(restaurantesResponse =>
+        this.restaurantes = restaurantesResponse);
+
     this.restauranteService.buscar()
       .subscribe(response =>
         this.restaurantes = response);
