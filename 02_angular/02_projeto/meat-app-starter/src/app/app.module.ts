@@ -20,6 +20,7 @@ import { PedidoSumarioComponent } from './pedido-sumario/pedido-sumario.componen
 import { SharedModule } from './shared/shared.module';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { LocationStrategy, HashLocationStrategy } from '@angular/common';
+import { LoginComponent } from './security/login/login.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -33,7 +34,8 @@ import { LocationStrategy, HashLocationStrategy } from '@angular/common';
     ItemMenuComponent,
     ReviewsComponent,
     PedidoSumarioComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

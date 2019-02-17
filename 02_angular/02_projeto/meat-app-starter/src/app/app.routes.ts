@@ -1,3 +1,4 @@
+import { LoginComponent } from './security/login/login.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { PedidoSumarioComponent } from './pedido-sumario/pedido-sumario.component';
 import { Routes } from '@angular/router';
@@ -12,6 +13,10 @@ export const ROUTES: Routes = [
   {
     path: '',
     component: HomeComponent
+  },
+  {
+    path: 'login',
+    component: LoginComponent
   },
   {
     path: 'sobre',
