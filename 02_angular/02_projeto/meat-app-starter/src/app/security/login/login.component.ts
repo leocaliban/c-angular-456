@@ -1,3 +1,4 @@
+import { ActivatedRoute, Router } from '@angular/router';
 import { NotificacaoService } from './../../shared/messages/notificacao.service';
 import { LoginService } from './login.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
@@ -10,14 +11,19 @@ import { Component, OnInit } from '@angular/core';
 export class LoginComponent implements OnInit {
 
   formularioDeLogin: FormGroup;
+  navigateTo: string;
 
   constructor(
     private formBuilder: FormBuilder,
     private loginService: LoginService,
-    private notificacaoService: NotificacaoService
+    private notificacaoService: NotificacaoService,
+    private activatedRoute: ActivatedRoute,
+    private router: Router
   ) { }
 
   ngOnInit() {
+    this.navigateTo = this.activatedRoute.snapshot.params['to'] || '/';
+
     this.formularioDeLogin = this.formBuilder.group({
       email: this.formBuilder.control('', [Validators.required, Validators.email]),
       password: this.formBuilder.control('', [Validators.required])
@@ -32,7 +38,10 @@ export class LoginComponent implements OnInit {
       .subscribe(userResponse =>
         this.notificacaoService.notificar(`Bem vindo, ${userResponse.name}`),
         response => // HTTPErrorResponse
-          this.notificacaoService.notificar(response.error.message));
+          this.notificacaoService.notificar(response.error.message),
+        () => {
+          this.router.navigate([this.navigateTo]);
+        });
   }
 
 }

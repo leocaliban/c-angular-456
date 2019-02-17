@@ -16,16 +16,16 @@ export const ROUTES: Routes = [
     component: HomeComponent
   },
   {
+    path: 'login/:to',
+    component: LoginComponent
+  },
+  {
     path: 'login',
     component: LoginComponent
   },
   {
     path: 'sobre',
     loadChildren: './sobre/sobre.module#SobreModule'
-  },
-  {
-    path: 'restaurantes',
-    component: RestaurantesComponent
   },
   {
     path: 'restaurantes/:id',
@@ -45,6 +45,10 @@ export const ROUTES: Routes = [
         component: ReviewsComponent
       }
     ]
+  },
+  {
+    path: 'restaurantes',
+    component: RestaurantesComponent
   },
   {
     path: 'pedido',
