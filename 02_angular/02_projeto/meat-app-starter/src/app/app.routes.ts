@@ -1,3 +1,4 @@
+import { LoggedInGuard } from './security/loggedin.guard';
 import { LoginComponent } from './security/login/login.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { PedidoSumarioComponent } from './pedido-sumario/pedido-sumario.component';
@@ -47,7 +48,8 @@ export const ROUTES: Routes = [
   },
   {
     path: 'pedido',
-    loadChildren: './pedido/pedido.module#PedidoModule'
+    loadChildren: './pedido/pedido.module#PedidoModule',
+    canLoad: [LoggedInGuard]
   },
   {
     path: 'pedido-sumario',

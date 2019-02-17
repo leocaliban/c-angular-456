@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { MEAT_API } from './../../app.api';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
@@ -10,7 +11,10 @@ export class LoginService {
 
   user: User;
 
-  constructor(private http: HttpClient) { }
+  constructor(
+    private http: HttpClient,
+    private router: Router
+  ) { }
 
   isLogged(): boolean {
     return this.user !== undefined;
@@ -20,5 +24,9 @@ export class LoginService {
     return this.http.post<User>(`${MEAT_API}login`,
       { email: email, password: password })
       .do(user => this.user = user);
+  }
+
+  handleLogin() {
+    this.router.navigate(['/login']);
   }
 }

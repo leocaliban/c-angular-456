@@ -11,6 +11,7 @@ import { PedidoService } from 'app/pedido/pedido.service';
 import { RestauranteService } from 'app/restaurantes/restaurantes.service';
 import { SnackbarComponent } from './messages/snackbar/snackbar.component';
 import { LoginService } from 'app/security/login/login.service';
+import { LoggedInGuard } from 'app/security/loggedin.guard';
 
 @NgModule({
   imports: [
@@ -43,7 +44,8 @@ export class SharedModule {
         PedidoService,
         RestauranteService,
         NotificacaoService,
-        LoginService
+        LoginService,
+        LoggedInGuard
       ]
     };
   }
