@@ -10,6 +10,7 @@ import { CarrinhoService } from 'app/detalhe-restaurante/carrinho/carrinho.servi
 import { PedidoService } from 'app/pedido/pedido.service';
 import { RestauranteService } from 'app/restaurantes/restaurantes.service';
 import { SnackbarComponent } from './messages/snackbar/snackbar.component';
+import { LoginService } from 'app/security/login/login.service';
 
 @NgModule({
   imports: [
@@ -41,7 +42,8 @@ export class SharedModule {
         CarrinhoService,
         PedidoService,
         RestauranteService,
-        NotificacaoService
+        NotificacaoService,
+        LoginService
       ]
     };
   }
