@@ -14,6 +14,8 @@ import { LoginService } from 'app/security/login/login.service';
 import { LoggedInGuard } from 'app/security/loggedin.guard';
 import { SairTelaPedidoGuard } from 'app/pedido/sair-tela-pedido.guard';
 
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { AuthInterceptor } from 'app/security/auth.interceptor';
 @NgModule({
   imports: [
     CommonModule,
@@ -47,7 +49,12 @@ export class SharedModule {
         NotificacaoService,
         LoginService,
         LoggedInGuard,
-        SairTelaPedidoGuard
+        SairTelaPedidoGuard,
+        {
+          provide: HTTP_INTERCEPTORS,
+          useClass: AuthInterceptor,
+          multi: true
+        }
       ]
     };
   }

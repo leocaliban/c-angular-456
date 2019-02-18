@@ -1,4 +1,3 @@
-import { LoginService } from 'app/security/login/login.service';
 import { Observable } from 'rxjs/Observable';
 import { Injectable } from '@angular/core';
 
@@ -17,8 +16,7 @@ export class PedidoService {
 
   constructor(
     private carrinhoService: CarrinhoService,
-    private http: HttpClient,
-    private loginService: LoginService
+    private http: HttpClient
   ) { }
 
   valorDosItens(): number {
@@ -42,12 +40,7 @@ export class PedidoService {
   }
 
   finalizarPedido(pedido: Pedido): Observable<string> {
-    let headers = new HttpHeaders();
-    if (this.loginService.isLogged()) {
-      headers = headers.set('Authorization', `Bearer ${this.loginService.user.accessToken}`)
-    }
-
-    return this.http.post<Pedido>(`${MEAT_API}pedidos`, pedido, { headers: headers })
+    return this.http.post<Pedido>(`${MEAT_API}pedidos`, pedido)
       .map(responsePedido => responsePedido.id);
   }
 
