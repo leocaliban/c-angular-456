@@ -1,3 +1,4 @@
+import { SairTelaPedidoGuard } from 'app/pedido/sair-tela-pedido.guard';
 import { SharedModule } from './../shared/shared.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -11,7 +12,8 @@ import { Routes, RouterModule } from '@angular/router';
 const ROUTES: Routes = [
   {
     path: '',
-    component: PedidoComponent
+    component: PedidoComponent,
+    canDeactivate: [SairTelaPedidoGuard]
   }
 ];
 

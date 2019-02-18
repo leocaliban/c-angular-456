@@ -21,6 +21,8 @@ export class PedidoComponent implements OnInit {
 
   frete = 8;
 
+  pedidoId: string;
+
   opcoesDePagamento: RadioOption[] = [
     {
       label: 'Dinheiro',
@@ -92,12 +94,18 @@ export class PedidoComponent implements OnInit {
     this.pedidoService.remover(item);
   }
 
+  isPedidoCompleto(): boolean {
+    return this.pedidoId !== undefined;
+  }
+
   finalizarPedido(pedido: Pedido) {
     pedido.itensDePedido = this.itensDoCarrinho().map((item: ItemCarrinho) => new ItemDePedido(item.quantity, item.itemMenu.id));
 
     this.pedidoService.finalizarPedido(pedido)
+      .do((pedidoId: string) => {
+        this.pedidoId = pedidoId;
+      })
       .subscribe((pedidoId: string) => {
-        console.log(`Compra concluída: ${pedidoId}`);
         this.router.navigate(['/pedido-sumario']);
         this.pedidoService.limpar();
       });

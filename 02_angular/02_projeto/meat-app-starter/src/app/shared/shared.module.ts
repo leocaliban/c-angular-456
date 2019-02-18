@@ -12,6 +12,7 @@ import { RestauranteService } from 'app/restaurantes/restaurantes.service';
 import { SnackbarComponent } from './messages/snackbar/snackbar.component';
 import { LoginService } from 'app/security/login/login.service';
 import { LoggedInGuard } from 'app/security/loggedin.guard';
+import { SairTelaPedidoGuard } from 'app/pedido/sair-tela-pedido.guard';
 
 @NgModule({
   imports: [
@@ -45,7 +46,8 @@ export class SharedModule {
         RestauranteService,
         NotificacaoService,
         LoginService,
-        LoggedInGuard
+        LoggedInGuard,
+        SairTelaPedidoGuard
       ]
     };
   }
