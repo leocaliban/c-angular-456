@@ -21,6 +21,7 @@ import { SharedModule } from './shared/shared.module';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { LocationStrategy, HashLocationStrategy } from '@angular/common';
 import { LoginComponent } from './security/login/login.component';
+import { DetalheUsuarioComponent } from './header/detalhe-usuario/detalhe-usuario.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -35,7 +36,8 @@ import { LoginComponent } from './security/login/login.component';
     ReviewsComponent,
     PedidoSumarioComponent,
     NotFoundComponent,
-    LoginComponent
+    LoginComponent,
+    DetalheUsuarioComponent
   ],
   imports: [
     BrowserModule,
