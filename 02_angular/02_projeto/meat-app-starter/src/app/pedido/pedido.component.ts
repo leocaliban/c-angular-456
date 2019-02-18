@@ -4,7 +4,7 @@ import { Component, OnInit } from '@angular/core';
 import { RadioOption } from 'app/shared/radio/radio-option.model';
 import { Pedido, ItemDePedido } from './pedido.model';
 import { Router } from '@angular/router';
-import { FormGroup, FormBuilder, Validators, AbstractControl } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators, AbstractControl, FormControl } from '@angular/forms';
 
 @Component({
   selector: 'mt-pedido',
@@ -60,7 +60,10 @@ export class PedidoComponent implements OnInit {
 
   ngOnInit() {
     this.formularioDePedido = this.formBuilder.group({
-      nome: this.formBuilder.control('', [Validators.required, Validators.minLength(5)]),
+      nome: new FormControl('', {
+        validators: [Validators.required, Validators.minLength(5)],
+        updateOn: 'blur'
+      }),
       email: this.formBuilder.control('', [Validators.required, Validators.pattern(this.emailPadrao)]),
       emailConfirmacao: this.formBuilder.control('', [Validators.required, Validators.pattern(this.emailPadrao)]),
       endereco: this.formBuilder.control('', [Validators.required, Validators.minLength(5)]),
