@@ -22,7 +22,7 @@ export class LoginComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.navigateTo = this.activatedRoute.snapshot.params['to'] || '/';
+    this.navigateTo = this.activatedRoute.snapshot.params['to'] || btoa('/');
 
     this.formularioDeLogin = this.formBuilder.group({
       email: this.formBuilder.control('', [Validators.required, Validators.email]),
@@ -40,7 +40,7 @@ export class LoginComponent implements OnInit {
         response => // HTTPErrorResponse
           this.notificacaoService.notificar(response.error.message),
         () => {
-          this.router.navigate([this.navigateTo]);
+          this.router.navigate([ atob(this.navigateTo)]);
         });
   }
 

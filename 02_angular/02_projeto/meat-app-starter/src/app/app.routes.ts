@@ -53,7 +53,8 @@ export const ROUTES: Routes = [
   {
     path: 'pedido',
     loadChildren: './pedido/pedido.module#PedidoModule',
-    canLoad: [LoggedInGuard]
+    canLoad: [LoggedInGuard],
+    canActivate: [LoggedInGuard]
   },
   {
     path: 'pedido-sumario',
