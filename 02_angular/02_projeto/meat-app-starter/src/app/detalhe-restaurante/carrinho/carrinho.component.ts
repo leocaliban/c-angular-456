@@ -5,6 +5,7 @@ import { trigger, state, style, transition, animate, keyframes } from '@angular/
 @Component({
   selector: 'mt-carrinho',
   templateUrl: './carrinho.component.html',
+  preserveWhitespaces: true,
   animations: [
     trigger('linha', [
       state('pronto', style({
