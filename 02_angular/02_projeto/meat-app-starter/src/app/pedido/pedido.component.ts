@@ -59,10 +59,9 @@ export class PedidoComponent implements OnInit {
 
 
   ngOnInit() {
-    this.formularioDePedido = this.formBuilder.group({
+    this.formularioDePedido = new FormGroup({
       nome: new FormControl('', {
-        validators: [Validators.required, Validators.minLength(5)],
-        updateOn: 'blur'
+        validators: [Validators.required, Validators.minLength(5)]
       }),
       email: this.formBuilder.control('', [Validators.required, Validators.pattern(this.emailPadrao)]),
       emailConfirmacao: this.formBuilder.control('', [Validators.required, Validators.pattern(this.emailPadrao)]),
@@ -72,7 +71,8 @@ export class PedidoComponent implements OnInit {
       opcaoDePagamento: this.formBuilder.control('', [Validators.required])
     },
       {
-        validator: PedidoComponent.equalsTo
+        validators: [PedidoComponent.equalsTo],
+        updateOn: 'blur'
       });
   }
 
