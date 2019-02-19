@@ -6,6 +6,8 @@ import { Pedido, ItemDePedido } from './pedido.model';
 import { Router } from '@angular/router';
 import { FormGroup, FormBuilder, Validators, AbstractControl, FormControl } from '@angular/forms';
 
+import { tap } from 'rxjs/operators';
+
 @Component({
   selector: 'mt-pedido',
   templateUrl: './pedido.component.html',
@@ -105,9 +107,11 @@ export class PedidoComponent implements OnInit {
     pedido.itensDePedido = this.itensDoCarrinho().map((item: ItemCarrinho) => new ItemDePedido(item.quantity, item.itemMenu.id));
 
     this.pedidoService.finalizarPedido(pedido)
-      .do((pedidoId: string) => {
-        this.pedidoId = pedidoId;
-      })
+      .pipe(
+        tap((pedidoId: string) => {
+          this.pedidoId = pedidoId;
+        })
+      )
       .subscribe((pedidoId: string) => {
         this.router.navigate(['/pedido-sumario']);
         this.pedidoService.limpar();

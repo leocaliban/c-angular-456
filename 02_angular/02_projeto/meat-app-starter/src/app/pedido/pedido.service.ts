@@ -1,4 +1,3 @@
-import { Observable } from 'rxjs/Observable';
 import { Injectable } from '@angular/core';
 
 import { ItemCarrinho } from './../detalhe-restaurante/carrinho/item-carrinho.model';
@@ -6,10 +5,10 @@ import { CarrinhoService } from './../detalhe-restaurante/carrinho/carrinho.serv
 import { Pedido } from './pedido.model';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
-import 'rxjs/add/operator/map';
-import 'rxjs/add/operator/catch';
-
 import { MEAT_API } from '../app.api';
+
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 @Injectable()
 export class PedidoService {
@@ -41,7 +40,9 @@ export class PedidoService {
 
   finalizarPedido(pedido: Pedido): Observable<string> {
     return this.http.post<Pedido>(`${MEAT_API}pedidos`, pedido)
-      .map(responsePedido => responsePedido.id);
+      .pipe(
+        map(responsePedido => responsePedido.id)
+      );
   }
 
   limpar() {
